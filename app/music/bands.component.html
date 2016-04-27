@@ -1,10 +1,9 @@
-<div class="panel panel-primary">
-    <div class="panel-heading">
-        {{pageTitle}}
-    </div>
-    <div class="panel-body"  >
-        <div class="row"  >
-            row...
-        </div>
+<h2>Bands</h2>
+<div [hidden]="!bands_error">An error occurred while loading the bands</div>
+<div [hidden]="bands_error" class="row">
+    <div *ngFor="#band of bands" class="col-md-4">
+        <h2>{{ band.name }}</h2>
+        <p></p>
+        <p><a class="btn btn-default" href="#" role="button">details</a></p>
     </div>
 </div>
