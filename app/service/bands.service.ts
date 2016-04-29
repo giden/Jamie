@@ -5,9 +5,11 @@ import { Observable } from 'rxjs/Observable';
 @Injectable()
 export class BandsService {
     constructor(private http: Http) { }
+    
+    _url: string = 'https://api.jamendo.com/v3.0/artists/'
 
-    getBands() {
-        return this.http.get('')
+    getBands(params: string) {
+        return this.http.get(this._url+'musicinfo/?client_id=56d30c95&format=json'+params)
             .map((res: Response) => res.json())
             .catch(this.handleError);
     }

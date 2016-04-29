@@ -1,9 +1,10 @@
-<h2>Bands</h2>
+<h1>Bands</h1>
 <div [hidden]="!bands_error">An error occurred while loading the bands</div>
 <div [hidden]="bands_error" class="row">
     <div *ngFor="#band of bands" class="col-md-4">
         <h2>{{ band.name }}</h2>
-        <p></p>
-        <p><a class="btn btn-default" href="#" role="button">details</a></p>
+        <img style="max-width: 140px; float: right;" [src]="band.image">
+        <p>{{ band.musicinfo.description.en }}</p>
+        <p><a class="btn btn-default" href="#" role="button">Pokaż zespół »</a></p>
     </div>
 </div>
