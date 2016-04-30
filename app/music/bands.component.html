@@ -8,3 +8,4 @@
         <p><a class="btn btn-default" href="#" role="button">Pokaż zespół »</a></p>
     </div>
 </div>
+<pager [totalItems]="totalItems" [itemsPerPage]="itemsPerPage" [(ngModel)]="currentPage" (pageChanged)="getBands($event)"></pager>
