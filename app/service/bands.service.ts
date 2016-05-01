@@ -14,7 +14,7 @@ export class BandsService {
             .catch(this.handleError);
     }
     getBand(id: string) {
-        return this.http.get('')
+        return this.http.get(this._url+'albums/?client_id=56d30c95&format=json&id='+id)
             .map((res: Response) => res.json())
             .catch(this.handleError);
     }

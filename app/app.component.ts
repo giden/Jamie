@@ -12,6 +12,7 @@ import 'rxjs/Rx';
 })
 @RouteConfig([
     { path: '/bands', name: 'Bands', component: BandsComponent, useAsDefault: true },
-    { path: '/band/:id', name: 'Band', component: BandDetailsComponent }
+    { path: '/band/:id', name: 'Band', component: BandDetailsComponent },
+    { path: '/album/:id', name: 'Album', component: BandDetailsComponent }
 ])
 export class AppComponent { }

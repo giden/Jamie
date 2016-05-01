@@ -7,4 +7,5 @@ export class Band {
     shorturl: string;
     shareurl: string;
     musicinfo: any;
+    albums: any;
 }

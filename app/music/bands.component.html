@@ -3,9 +3,9 @@
 <div [hidden]="bands_error" class="row">
     <div *ngFor="#band of bands" class="col-md-4">
         <h2>{{ band.name }}</h2>
-        <img style="max-width: 140px; float: right;" [src]="band.image">
+        <img style="max-width: 140px; float: right; margin:1%" [src]="band.image">
         <p>{{ band.musicinfo.description.en }}</p>
-        <p><a class="btn btn-default" href="#" role="button">Pokaż zespół »</a></p>
+        <p><a class="btn btn-default" [routerLink]="['Band', {id: band.id}]" role="button">Show Band »</a></p>
     </div>
 </div>
 <pager [totalItems]="totalItems" [itemsPerPage]="itemsPerPage" [(ngModel)]="currentPage" (pageChanged)="getBands($event)"></pager>

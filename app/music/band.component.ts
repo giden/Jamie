@@ -2,11 +2,12 @@ import { Component, OnInit } from 'angular2/core';
 
 import { BandsService } from '../service/bands.service';
 import { Band } from '../entity/band';
-import { RouteParams } from 'angular2/router';
+import { RouteParams, ROUTER_DIRECTIVES } from 'angular2/router';
 
 
 @Component({
     templateUrl: 'app/music/band.component.html',
+    directives: [ROUTER_DIRECTIVES],
     providers: [BandsService]
 })
 export class BandDetailsComponent implements OnInit {
@@ -20,7 +21,7 @@ export class BandDetailsComponent implements OnInit {
 
     getBand(id: string) {
         this._bandsService.getBand(id).subscribe(
-            data => { this.band = <Band> data },
+            data => { this.band = <Band> data.results[0] },
             err => { this.bands_error = true }
         );
     }

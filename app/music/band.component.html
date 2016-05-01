@@ -1,2 +1,15 @@
 <div [hidden]="!band_error">An error occurred while loading the band</div>
-<h2 [hidden]="band_error">{{ band.name }}</h2>
+<a class="btn btn-link btn-lg" [routerLink]="['Bands']">« Back</a>
+<div style="text-align: center;"><h1 [hidden]="band_error">{{ band?.name }}</h1>
+<a [href]="band?.website">{{ band?.website }}</a></div>
+<br><br>
+<div [hidden]="bands_error" class="row">
+  <div class="col-md-12">
+    <div *ngFor="#album of band?.albums" class="col-md-4" style="height: 15em;">
+        <h2>{{ album.name }}</h2>
+        <img style="max-width: 100px; float: right; margin-right: 20%;" [src]="album.image">
+        <p>{{ album.releasedate }}</p>
+        <p><a class="btn btn-default" [routerLink]="['Album', {id: album.id}]" role="button">Show album »</a></p>
+    </div>
+  </div>
+</div>
