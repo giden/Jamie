@@ -3,7 +3,7 @@ import { PAGINATION_DIRECTIVES } from 'ng2-bootstrap/ng2-bootstrap';
 
 import { BandsService } from '../service/bands.service';
 import { Band } from '../entity/band';
-import {  ROUTER_DIRECTIVES } from 'angular2/router';
+import { ROUTER_DIRECTIVES } from 'angular2/router';
 
 @Component({
     templateUrl: 'app/music/bands.component.html',
