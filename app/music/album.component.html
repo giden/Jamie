@@ -1,0 +1,22 @@
+<div [hidden]="!band_error">An error occurred while loading the album</div>
+<a class="btn btn-link btn-lg" [routerLink]="['Band', {id: album?.artist_id}]">« Back</a>
+<div class="row">
+    <div class="col-md-6">
+        <a [href]="album?.zip" style="float: right; padding-right: 10%;"><h1 class="glyphicon glyphicon-download-alt"></h1></a>
+        <h1 [hidden]="album_error" style="text-align: center;">{{ album?.name }}</h1>
+        <br>
+        <ul class="list-group">
+            <li *ngFor="#track of album?.tracks" class="list-group-item">
+                {{ track.position }}. <strong>{{ track.name }}</strong>
+                <br>
+                <video controls height="50" width="300" name="media">
+                    <source [src]="track.audio" type="audio/mpeg">
+                </video>
+                <br>
+            </li>
+        </ul>
+    </div>
+    <div *ngIf="album" class="col-md-6">
+        <img [src]="album.image" style="float: right;">
+    </div>
+</div>

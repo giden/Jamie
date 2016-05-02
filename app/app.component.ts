@@ -2,6 +2,7 @@ import { Component } from 'angular2/core';
 import { ROUTER_PROVIDERS, RouteConfig, ROUTER_DIRECTIVES } from 'angular2/router';
 import { BandsComponent } from './music/bands.component';
 import { BandDetailsComponent } from './music/band.component';
+import { AlbumComponent } from './music/album.component';
 import 'rxjs/Rx';
 
 @Component({
@@ -13,6 +14,6 @@ import 'rxjs/Rx';
 @RouteConfig([
     { path: '/bands', name: 'Bands', component: BandsComponent, useAsDefault: true },
     { path: '/band/:id', name: 'Band', component: BandDetailsComponent },
-    { path: '/album/:id', name: 'Album', component: BandDetailsComponent }
+    { path: '/album/:id', name: 'Album', component: AlbumComponent }
 ])
 export class AppComponent { }

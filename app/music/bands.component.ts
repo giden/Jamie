@@ -1,9 +1,9 @@
 import { Component, OnInit } from 'angular2/core';
-import { PAGINATION_DIRECTIVES } from 'ng2-bootstrap/ng2-bootstrap';
+import { ROUTER_DIRECTIVES } from 'angular2/router';
 
+import { PAGINATION_DIRECTIVES } from 'ng2-bootstrap/ng2-bootstrap';
 import { BandsService } from '../service/bands.service';
 import { Band } from '../entity/band';
-import { ROUTER_DIRECTIVES } from 'angular2/router';
 
 @Component({
     templateUrl: 'app/music/bands.component.html',
@@ -32,7 +32,6 @@ export class BandsComponent implements OnInit {
         params += '&limit='+event.itemsPerPage;
         params += '&order=popularity_month';
         params += '&hasimage=1';
-        console.log(params);
 
         this._bandsService.getBands(params).subscribe(
             data => {
