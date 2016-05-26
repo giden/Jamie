@@ -20,19 +20,4 @@
         <img [src]="album.image" style="float: right;">
     </div>
 </div>
-<div [hidden]="album_error" class="row">
-    <div class="col-md-6 col-md-offset-3">
-        <h2>Comments</h2>
-
-        <ul class="list-group">
-            <li *ngFor="#comm of comments" class="list-group-item" style="word-wrap:break-word">
-                {{ comm.body }}<span style="float: right;color: gray; overflow:auto;">{{ comm.author }}</span>
-            </li>
-        </ul>
-        <form (ngSubmit)="addComment()">
-            <textarea [(ngModel)]="comment" placeholder="What do you think about this album?" style="width: 40em; height: 7em;"></textarea>
-            <button type="submit" class="btn btn-success green" style="float:right;"><i class="fa fa-share"></i> Send</button>
-        </form>
-    </div>
-
-</div>
+<comments *ngIf="album" [hidden]="album_error" resource="album" [bandId]="bandId" [albumId]="album.id"></comments>

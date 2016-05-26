@@ -1,13 +1,12 @@
-import { Component, OnInit } from 'angular2/core';
-import { RouteParams, ROUTER_DIRECTIVES } from 'angular2/router';
-
+import { Component, OnInit } from '@angular/core';
+import { RouteParams, ROUTER_DIRECTIVES } from '@angular/router-deprecated';
 import { BandsService } from '../service/bands.service';
 import { Band } from '../entity/band';
-
+import { Comments } from './comments.component'
 
 @Component({
     templateUrl: 'app/music/band.component.html',
-    directives: [ROUTER_DIRECTIVES],
+    directives: [ROUTER_DIRECTIVES, Comments],
     providers: [BandsService]
 })
 export class BandDetailsComponent implements OnInit {
@@ -17,9 +16,9 @@ export class BandDetailsComponent implements OnInit {
 
     constructor(private _bandsService: BandsService, private _routeParams: RouteParams) { }
 
-    ngOnInit() { this.getBand(this._routeParams.get('id')) }
+    ngOnInit() { this.getBand(parseInt(this._routeParams.get('id'))) }
 
-    getBand(id: string) {
+    getBand(id: number) {
         this._bandsService.getBand(id).subscribe(
             data => { this.band = <Band> data.results[0] },
             err => { this.bands_error = true }

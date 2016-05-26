@@ -1,5 +1,5 @@
-import { Injectable } from 'angular2/core';
-import { Http, Response } from 'angular2/http';
+import { Injectable } from '@angular/core';
+import { Http, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 
 @Injectable()
@@ -13,12 +13,12 @@ export class BandsService {
             .map((res: Response) => res.json())
             .catch(this.handleError);
     }
-    getBand(id: string) {
+    getBand(id: number) {
         return this.http.get(this._url+'artists/albums/?client_id=56d30c95&format=json&limit=1&id='+id)
             .map((res: Response) => res.json())
             .catch(this.handleError);
     }
-    getAlbum(id: string) {
+    getAlbum(id: number) {
         return this.http.get(this._url+'albums/tracks/?client_id=56d30c95&format=json&limit=1&imagesize=500&id='+id)
             .map((res: Response) => res.json())
             .catch(this.handleError);

@@ -1,5 +1,5 @@
-import { Component, OnInit } from 'angular2/core';
-import { ROUTER_DIRECTIVES } from 'angular2/router';
+import { Component, OnInit } from '@angular/core';
+import { ROUTER_DIRECTIVES } from '@angular/router-deprecated';
 
 import { PAGINATION_DIRECTIVES } from 'ng2-bootstrap/ng2-bootstrap';
 import { BandsService } from '../service/bands.service';
