@@ -1,5 +1,7 @@
 <div [hidden]="!band_error">An error occurred while loading the band</div>
 <a class="btn btn-link btn-lg" [routerLink]="['Bands']">« Back</a>
+<a class="btn btn-link btn-lg" [routerLink]="['AddEvent', {id: band?.id}]">Add event</a>
+<a class="btn btn-link btn-lg" [routerLink]="['Events', {id: band?.id}]">Band events</a>
 <div style="text-align: center;"><h1 [hidden]="band_error">{{ band?.name }}</h1>
 <a [href]="band?.website">{{ band?.website }}</a></div>
 <br><br>

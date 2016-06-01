@@ -1,25 +1,29 @@
 import { Injectable } from '@angular/core';
-import { Http, Response } from '@angular/http';
+import { Http, Response, Headers } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
+import { Event } from '../entity/event';
 
 @Injectable()
-export class BandsService {
+export class EventsService {
     constructor(private http: Http) { }
-    
-    _url: string = 'https://api.jamendo.com/v3.0/'
 
-    getBands(params: string) {
-        return this.http.get(this._url+'artists/musicinfo/?client_id=56d30c95&format=json'+params)
+    _url: string = 'http://localhost:8080/jamie/events'
+
+    getEventsByBand(id: number) {
+        return this.http.get(this._url + '/bands/' + id)
             .map((res: Response) => res.json())
             .catch(this.handleError);
     }
-    getBand(id: number) {
-        return this.http.get(this._url+'artists/albums/?client_id=56d30c95&format=json&limit=1&id='+id)
+    
+    getAllEvents() {
+        return this.http.get(this._url)
             .map((res: Response) => res.json())
             .catch(this.handleError);
     }
-    getAlbum(id: number) {
-        return this.http.get(this._url+'albums/tracks/?client_id=56d30c95&format=json&limit=1&imagesize=500&id='+id)
+
+    postEvent(event: Event) {
+        return this.http.post(this._url, JSON.stringify(event),
+            { headers: new Headers({ 'Content-Type': 'application/json' }) })
             .map((res: Response) => res.json())
             .catch(this.handleError);
     }

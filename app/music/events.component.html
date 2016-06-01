@@ -1,0 +1,14 @@
+<a class="btn btn-link btn-lg" [routerLink]="['Band', {id: bandId}]">« Back</a>
+<h2 style="text-align: center;">Events</h2>
+<div [hidden]="!events_error">An error occurred while loading events</div>
+<div [hidden]="events_error" class="row">
+    <div class="col-md-6 col-md-offset-3">
+        <ul class="list-group">
+            <li *ngFor="let event of events" class="list-group-item">
+                <span style="font-size: xx-large">{{ event.name }}</span>
+                <br/>Date: {{ event.date | date }}
+                <br/>Place: {{ event.place }}
+            </li>
+        </ul>
+    </div>
+</div>

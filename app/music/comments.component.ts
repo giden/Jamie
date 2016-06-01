@@ -44,7 +44,6 @@ export class Comments implements OnInit {
             data => { this.comments.push(<Comment>data) },
             err => { this.comments_error = true }
         );
-
     }
 
     getComments(bandId, albumId) {
